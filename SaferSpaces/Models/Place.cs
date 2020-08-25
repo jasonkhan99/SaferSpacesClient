@@ -12,17 +12,17 @@ namespace SaferSpacesClient.Models
       this.Events = new HashSet<Event>();
       this.Testimonials = new HashSet<Testimonial>();
     }
-    public int PlaceId { get;set; }
-    public string Name { get;set; }
-    public string Type { get;set; }
-    public string Address { get;set; }
-    public Restroom RestroomFeatures { get;set; }
-    public virtual ICollection<Event> Events { get;set; }
+    public int PlaceId { get; set; }
+    public string Name { get; set; }
+    public string Type { get; set; }
+    public string Address { get; set; }
+    public Restroom RestroomFeatures { get; set; }
+    public virtual ICollection<Event> Events { get; set; }
     public virtual ICollection<Testimonial> Testimonials { get; set; }
 
     public static List<Place> GetPlaces()
     {
-      var apiCallTask = ApiHelper.GetAll();
+      var apiCallTask = ApiHelper.GetAllPlaces();
       var result = apiCallTask.Result;
 
       JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
@@ -33,7 +33,7 @@ namespace SaferSpacesClient.Models
 
     public static Place GetDetails(int id)
     {
-      var apiCallTask = ApiHelper.Get(id);
+      var apiCallTask = ApiHelper.GetPlace(id);
       var result = apiCallTask.Result;
       JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
       Place place = JsonConvert.DeserializeObject<Place>(jsonResponse.ToString());
@@ -43,18 +43,26 @@ namespace SaferSpacesClient.Models
     public static void Post(Place place)
     {
       string jsonPlace = JsonConvert.SerializeObject(place);
-      var apiCallTask = ApiHelper.Post(jsonPlace);
+      var apiCallTask = ApiHelper.PostPlace(jsonPlace);
     }
 
     public static void Put(Place place)
     {
       string jsonPlace = JsonConvert.SerializeObject(place);
-      var apiCallTask = ApiHelper.Put(place.PlaceId, jsonPlace);
+      var apiCallTask = ApiHelper.PutPlace(place.PlaceId, jsonPlace);
     }
-    
+
     public static void Delete(int id)
     {
-      var apiCallTask = ApiHelper.Delete(id);
+      var apiCallTask = ApiHelper.DeletePlace(id);
     }
+  }
+
+  public enum Restroom
+  {
+    Accessible,
+    GenderNeutral,
+    Both,
+    None
   }
 }

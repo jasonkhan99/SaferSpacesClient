@@ -28,7 +28,7 @@ namespace SaferSpacesClient.Models
 
     public static List<Event> GetEvents()
     {
-      var apiCallTask = ApiHelper.GetAll();
+      var apiCallTask = ApiHelper.GetAllEvents();
       var result = apiCallTask.Result;
 
       JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
@@ -39,7 +39,7 @@ namespace SaferSpacesClient.Models
 
     public static Event GetDetails(int id)
     {
-      var apiCallTask = ApiHelper.Get(id);
+      var apiCallTask = ApiHelper.GetEvent(id);
       var result = apiCallTask.Result;
       JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
       Event gathering = JsonConvert.DeserializeObject<Event>(jsonResponse.ToString());
@@ -49,18 +49,18 @@ namespace SaferSpacesClient.Models
     public static void Post(Event gathering)
     {
       string jsonEvent = JsonConvert.SerializeObject(gathering);
-      var apiCallTask = ApiHelper.Post(jsonEvent);
+      var apiCallTask = ApiHelper.PostEvent(jsonEvent);
     }
 
     public static void Put(Event gathering)
     {
       string jsonEvent = JsonConvert.SerializeObject(gathering);
-      var apiCallTask = ApiHelper.Put(gathering.EventId, jsonEvent);
+      var apiCallTask = ApiHelper.PutEvent(gathering.EventId, jsonEvent);
     }
 
     public static void Delete(int id)
     {
-      var apiCallTask = ApiHelper.Delete(id);
+      var apiCallTask = ApiHelper.DeleteEvent(id);
     }
   }
 }

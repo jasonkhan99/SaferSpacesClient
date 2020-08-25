@@ -1,11 +1,11 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
 
 namespace SaferSpacesClient.ViewModels
 {
   public class RegisterViewModel
   {
     [Required]
-    [UserName]
     [Display(Name = "Username")]
     public string UserName { get; set; }
 

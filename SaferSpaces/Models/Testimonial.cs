@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace SaferSpacesClient.Models
 {
@@ -16,7 +18,7 @@ namespace SaferSpacesClient.Models
 
     public static List<Testimonial> GetTestimonials()
     {
-      var apiCallTask = ApiHelper.GetAll();
+      var apiCallTask = ApiHelper.GetAllTestimonials();
       var result = apiCallTask.Result;
 
       JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
@@ -27,7 +29,7 @@ namespace SaferSpacesClient.Models
 
     public static Testimonial GetDetails(int id)
     {
-      var apiCallTask = ApiHelper.Get(id);
+      var apiCallTask = ApiHelper.GetTestimonial(id);
       var result = apiCallTask.Result;
       JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
       Testimonial testimonial = JsonConvert.DeserializeObject<Testimonial>(jsonResponse.ToString());
@@ -37,18 +39,18 @@ namespace SaferSpacesClient.Models
     public static void Post(Testimonial testimonial)
     {
       string jsonTestimonial = JsonConvert.SerializeObject(testimonial);
-      var apiCallTask = ApiHelper.Post(jsonTestimonial);
+      var apiCallTask = ApiHelper.PostTestimonial(jsonTestimonial);
     }
 
     public static void Put(Testimonial testimonial)
     {
       string jsonTestimonial = JsonConvert.SerializeObject(testimonial);
-      var apiCallTask = ApiHelper.Put(testimonial.TestimonialId, jsonTestimonial);
+      var apiCallTask = ApiHelper.PutTestimonial(testimonial.TestimonialId, jsonTestimonial);
     }
 
     public static void Delete(int id)
     {
-      var apiCallTask = ApiHelper.Delete(id);
+      var apiCallTask = ApiHelper.DeleteTestimonial(id);
     }
   }
 }

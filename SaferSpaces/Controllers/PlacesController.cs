@@ -16,6 +16,11 @@ namespace SaferSpacesClient.Controllers
       return View(allPlaces);
     }
 
+    public IActionResult Details(int id)
+    {
+      var place = Place.GetDetails(id);
+      return View(place);
+    }
     //need Create get and post, Details get, Edit get and post, Delete post
   }
 }
