@@ -36,11 +36,11 @@ namespace SaferSpacesClient.Controllers
     }
 
     [HttpPost]
-    public IActionResult Details(int id, Testimonial testimonial)
+    public IActionResult Edit(int id, Testimonial testimonial)
     {
       testimonial.TestimonialId = id;
       Testimonial.Put(testimonial);
-      return RedirectToAction("Details", id);
+      return RedirectToAction("Details", new { id = id });
     }
 
     public IActionResult Delete(int id)

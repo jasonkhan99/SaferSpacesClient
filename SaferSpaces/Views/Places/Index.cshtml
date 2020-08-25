@@ -1,9 +1,9 @@
-@* @{
+@{
   Layout = "_Layout";    TEMPLATE
 }
 
-@using ToDoList.Models;
-@model IEnumerable<ToDoList.Models.Item>
+@using SaferSpacesClient.Models;
+@model IEnumerable<SaferSpacesClient.Models.Item>
 
 <h1>Items for @User.Identity.Name</h1>
 
@@ -14,17 +14,17 @@
 
 {
   <ul>
-    @foreach (Item item in Model)
+    @foreach (Place place in Model)
     {
-      <li>@Html.ActionLink($"{item.Description}", "Details", new { id = item.ItemId })</li>
+      <li>@Html.ActionLink($"{place.Name}", "Details", new { id = place.PlaceId })</li>
     }
   </ul>
 } 
 else
 {
-  <h3>No items have been added yet!</h3>
+  <h3>No places have been added yet!</h3>
 }
 
-<p>@Html.ActionLink("Add new item", "Create")</p>
+<p>@Html.ActionLink("Add new place", "Create")</p>
 
-<p>@Html.ActionLink("Home", "Index", "Home")</p> *@
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

@@ -1,22 +1,36 @@
-@{
+@* @{
   Layout = "_Layout";
 }
 
-@{
-  ViewData["Title"] = "Details";
+
+@* <h1>Review Details</h1>
+
+
+
+@model SaferSpacesClient.Models;
+
+<h2>Place Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.PlaceName): @Html.DisplayFor(model => model.PlaceName)</h3>
+
+@if(@Model.Events.Count == 0)
+{
+  <p>This place has no events</p>
 }
-
-<h1>@Model.Name</h1>
-<ul>
-<li>Type: @Model.Type</li>
-<li>Address: @Model.Address</li>
-<li>Restroom: @Model.RestroomFeatures</li>
-
-  @foreach(Event gathering in Model)
+else
+{
+  <h4>Events this place contains:</h4>
+  <ul>
+  @foreach(var join in Model.Places)
   {
-    <li>@Html.ActionLink($"{place.Name}", "Details", new { id = gathering.EventId })</li>
-  }</ul>
-
-
-<p>@Html.ActionLink("Add a video to the library", "Create")</p>n event
-<p>@Html.ActionLink("Home", "Index", "Customers")</p>
+    <li>@join.Event.Events</li>
+    <li>@join.Engineer.EnrollmentDate</li>
+    
+    @using(Html.BeginForm("DeleteMachine", "Engineers"))
+    {
+      @Html.Hidden("joinId", @join.EngineerMachineId)
+      <input type="submit" value="Delete"/>
+    }
+  }
+  </ul>
+} *@

@@ -37,11 +37,11 @@ namespace SaferSpacesClient.Controllers
 
     // is this really Post route for Edit?
     [HttpPost]
-    public IActionResult Details(int id, Place place)
+    public IActionResult Edit(int id, Place place)
     {
       place.PlaceId = id;
       Place.Put(place);
-      return RedirectToAction("Details", id);
+      return RedirectToAction("Details", new { id = id });
     }
 
     public IActionResult Delete(int id)

@@ -37,11 +37,11 @@ namespace SaferSpacesClient.Controllers
     }
 
     [HttpPost]
-    public IActionResult Details(int id, Event gathering)
+    public IActionResult Edit(int id, Event gathering)
     {
       gathering.EventId = id;
       Event.Put(gathering);
-      return RedirectToAction("Details", id);
+      return RedirectToAction("Details", new { id = id });
     }
 
     public IActionResult Delete(int id)

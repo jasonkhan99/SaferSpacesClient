@@ -3,16 +3,18 @@
 }
 
 @using SaferSpacesClient.ViewModels;
-
 @model LoginViewModel
 
-<h2>Log in with your account</h2>
+<h2>Log in to add, edit or delete</h2>
+<p>Not a returning user? @Html.ActionLink("Register", "Register")</p>
 <hr />
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(m => m.Email)
-    @Html.TextBoxFor(m => m.Email)
+    @* @Html.LabelFor(m => m.Email)
+    @Html.TextBoxFor(m => m.Email) *@
     // DO WE WANT THIS TO BE USERNAME???
+    @Html.LabelFor(m => m.Username)
+    @Html.TextBoxFor(m => m.Username)
 
     @Html.LabelFor(m => m.Password)
     @Html.PasswordFor(m => m.Password)
