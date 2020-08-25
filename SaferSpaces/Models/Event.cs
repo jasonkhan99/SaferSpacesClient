@@ -29,7 +29,7 @@ namespace SaferSpacesClient.Models
       var result = apiCallTask.Result;
 
       JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
-      List<Place> eventList = JsonConvert.DeserializeObject<List<Event>>(jsonResponse.ToString());
+      List<Event> eventList = JsonConvert.DeserializeObject<List<Event>>(jsonResponse.ToString());
 
       return eventList;
     }
@@ -43,16 +43,16 @@ namespace SaferSpacesClient.Models
       return happening;
     }
 
-    public static void Post(Place place)
+    public static void Post(Event happening)
     {
-      string jsonPlace = JsonConvert.SerializeObject(place);
-      var apiCallTask = ApiHelper.Post(jsonPlace);
+      string jsonEvent = JsonConvert.SerializeObject(happening);
+      var apiCallTask = ApiHelper.Post(jsonEvent);
     }
 
-    public static void Put(Place place)
+    public static void Put(Event happening)
     {
-      string jsonPlace = JsonConvert.SerializeObject(place);
-      var apiCallTask = ApiHelper.Put(place.PlaceId, jsonPlace);
+      string jsonEvent = JsonConvert.SerializeObject(happening);
+      var apiCallTask = ApiHelper.Put(happening.EventId, jsonEvent);
     }
     
     public static void Delete(int id)
