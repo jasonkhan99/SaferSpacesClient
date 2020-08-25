@@ -23,7 +23,7 @@ namespace SaferSpacesClient.Models
     public string Description { get; set; }
     public virtual ICollection<Testimonial> Testimonials { get; set; }
 
-    public static List<Events> GetEvents()
+    public static List<Event> GetEvents()
     {
       var apiCallTask = ApiHelper.GetAll();
       var result = apiCallTask.Result;
