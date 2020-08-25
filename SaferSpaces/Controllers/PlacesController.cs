@@ -4,15 +4,18 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using ExplorationClient.Models;
+using SaferSpacesClient.Models;
 
-namespace SaferSpacesClient.Controller
+namespace SaferSpacesClient.Controllers
 {
-  public IActionResult Index()
+  public class PlacesController : Controller
   {
-    var allPlaces = Place.GetPlaces();
-    return View(allPlaces);
-  }
+    public IActionResult Index()
+    {
+      var allPlaces = Place.GetPlaces();
+      return View(allPlaces);
+    }
 
-  //need Create get and post, Details get, Edit get and post, Delete post
+    //need Create get and post, Details get, Edit get and post, Delete post
+  }
 }

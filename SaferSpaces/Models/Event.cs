@@ -5,6 +5,7 @@ using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 
+
 namespace SaferSpacesClient.Models
 {
   public class Event

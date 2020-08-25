@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace SaferSpacesApi.Models
+namespace SaferSpacesClient.Models
 {
   public class Testimonial
   {
@@ -13,7 +13,7 @@ namespace SaferSpacesApi.Models
 
     public string Other { get; set; }
 
-    
+
     public static List<Testimonial> GetTestimonials()
     {
       var apiCallTask = ApiHelper.GetAll();
@@ -45,7 +45,7 @@ namespace SaferSpacesApi.Models
       string jsonTestimonial = JsonConvert.SerializeObject(testimonial);
       var apiCallTask = ApiHelper.Put(testimonial.TestimonialId, jsonTestimonial);
     }
-    
+
     public static void Delete(int id)
     {
       var apiCallTask = ApiHelper.Delete(id);
