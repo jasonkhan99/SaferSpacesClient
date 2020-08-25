@@ -1,19 +1,20 @@
-@* @{
-  Layout = "_Layout";  TEMPLATE
+@{
+  Layout = "_Layout";  
 }
 
-@model ToDoList.Models.Item
+<h1>Create New Review</h1>
 
-<h4>Add a new task</h4>
+<form action="/places/create" method="post">
+  <label for="name">Place Name:</label>
+  <input id="name" name="name" type="text">
+  <label for="type">Type:</label>
+  <input id="type" name="type" type="text">
+  <label for="address">Address:</label>
+  <input id="address" name="address" type="text">
+  <label for="restroomFeatures">RestroomFeatures:</label>
+  <input id="restroomFeatures" name="restroomFeatures" type="text">
 
-@using (Html.BeginForm())
-{
-    @Html.LabelFor(model => model.Description)
-    @Html.TextBoxFor(model => model.Description)
+  <button type="submit">Save</button>
+</form>
+    
 
-    @Html.Label("Select category")
-    @Html.DropDownList("CategoryId")
-
-    <input type="submit" value="Add new item" class="btn btn-default" />
-}
-<p>@Html.ActionLink("Show all items", "Index")</p> *@

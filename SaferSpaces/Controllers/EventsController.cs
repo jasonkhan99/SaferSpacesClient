@@ -11,10 +11,43 @@ namespace SaferSpacesClient.Controllers
   public class EventsController : Controller
   {
 
+    public IActionResult Index()
+    {
+      var allEvents = Event.GetEvents();
+      return View(allEvents);
+    }
 
+    [HttpPost]
+    public IActionResult Index(Event gathering)
+    {
+      Event.Post(gathering);
+      return RedirectToAction("Index");
+    }
 
+    public IActionResult Details(int id)
+    {
+      var gathering = Event.GetDetails(id);
+      return View(gathering);
+    }
 
+    public IActionResult Edit(int id)
+    {
+      var gathering = Event.GetDetails(id);
+      return View(gathering);
+    }
 
+    [HttpPost]
+    public IActionResult Edit(int id, Event gathering)
+    {
+      gathering.EventId = id;
+      Event.Put(gathering);
+      return RedirectToAction("Details", new { id = id });
+    }
 
+    public IActionResult Delete(int id)
+    {
+      Event.Delete(id);
+      return RedirectToAction("Index");
+    }
   }
 }

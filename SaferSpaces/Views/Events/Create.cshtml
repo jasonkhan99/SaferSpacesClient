@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+<h1> Add a new Event </h1>
+
+<form action="/events" method="post">
+<label for="name">Event name:</label>
+<input id="name" name="name" type="text">
+<label for="eventDate">Date of Event:</label>
+<input id="eventDate" name="eventDate" type="date">
+<label for="eventTime">Time of Event:</label>
+<input id="eventTime" name="eventTime" type="time">
+<label for="description">Description of Event:</label>
+<input id="description" name="description" type="text">
+<label for="place"> Where is this event happening?</label>
+<input id="place" name="place" type="text">
+<button type="submit">Submit Event</button>
+</form>

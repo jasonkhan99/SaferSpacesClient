@@ -1,0 +1,24 @@
+<h1>Event Details</h1>
+
+<ol>
+  <ul>
+    <li>ID: @Model.PlaceId</li>
+    <li>Name: @Model.Name</li>
+    <li>Event Date: @Model.EventDate</li>
+    <li>Event Time: @Model.EventTime</li>
+    <li>Description: @Model.Description</li>
+    <li>Number of Testimonials: @Model.Testimonials.Count(), <a href="/Events/@(Model.EventId)/Testimonials"> See testimonials:</li>
+  </ul>
+</ol>
+
+<br>
+
+<a href="/Places/Edit/@(Model.PlaceId)">Edit</a>
+<a href="/Places/Delete/@(Model.PlaceId)">Delete Review</a>
+
+
+Create (events)
+Details (events)
+AddTestimonial (from events details page) when you submit, reroutes to Details(events)
+Testimonials.cshtml (events)
+
