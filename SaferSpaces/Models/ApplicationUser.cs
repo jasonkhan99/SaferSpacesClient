@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace PROJECTNAME/NAMESPACE.Models
+namespace SaferSpacesClient.Models
 {
   public class ApplicationUser : IdentityUser
   {
