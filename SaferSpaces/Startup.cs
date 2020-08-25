@@ -25,49 +25,61 @@ namespace SaferSpacesClient
 
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddMvc();
+      services.AddMvc();
 
-        services.AddEntityFrameworkMySql()
-        .AddDbContext<PROJECTNAMEContext>(options => options
-        .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
+      services.AddEntityFrameworkMySql()
+      .AddDbContext<SaferSpacesClientContext>(options => options
+      .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
 
-        //new for identity
-        services.AddIdentity<ApplicationUser, IdentityRole>()
-            .AddEntityFrameworkStores<PROJECTNAMEContext>()
-            .AddDefaultTokenProviders();
+      //new for identity
+      services.AddIdentity<ApplicationUser, IdentityRole>()
+          .AddEntityFrameworkStores<SaferSpacesClientContext>()
+          .AddDefaultTokenProviders();
 
-        // This is new:  ONLY FOR DEVELOPMENT - SET STRICTER REQUIREMENTS FOR ACTUAL LOGIN 
-        services.Configure<IdentityOptions>(options =>
-        {
-            options.Password.RequireDigit = false;
-            options.Password.RequiredLength = 0;
-            options.Password.RequireLowercase = false;
-            options.Password.RequireNonAlphanumeric = false;
-            options.Password.RequireUppercase = false;
-            options.Password.RequiredUniqueChars = 0;
-        });
+      // This is new:  ONLY FOR DEVELOPMENT - SET STRICTER REQUIREMENTS FOR ACTUAL LOGIN 
+      services.Configure<IdentityOptions>(options =>
+      {
+        options.Password.RequireDigit = false;
+        options.Password.RequiredLength = 0;
+        options.Password.RequireLowercase = false;
+        options.Password.RequireNonAlphanumeric = false;
+        options.Password.RequireUppercase = false;
+        options.Password.RequiredUniqueChars = 0;
+      });
     }
 
-    public void Configure(IApplicationBuilder app)
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
-        app.UseStaticFiles();
+      app.UseStaticFiles();
 
+      // app.UseDeveloperExceptionPage();
+      if (env.IsDevelopment())
+      {
         app.UseDeveloperExceptionPage();
+      }
+      else
+      {
+        app.UseExceptionHandler("/Home/Error");
+        // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+        app.UseHsts();
+      }
 
-        //new for Identity
-        app.UseAuthentication();
+      //new for Identity
+      app.UseAuthentication();
+      // app.UseHttpsRedirection();
 
-        app.UseMvc(routes =>
-        {
-            routes.MapRoute(
-            name: "default",
-            template: "{controller=Home}/{action=Index}/{id?}");
-        });
 
-        app.Run(async (context) =>
-        {
-            await context.Response.WriteAsync("Something went wrong!");
-        });
-        }
+      app.UseMvc(routes =>
+      {
+        routes.MapRoute(
+          name: "default",
+          template: "{controller=Home}/{action=Index}/{id?}");
+      });
+
+      app.Run(async (context) =>
+      {
+        await context.Response.WriteAsync("Something went wrong!");
+      });
     }
+  }
 }
