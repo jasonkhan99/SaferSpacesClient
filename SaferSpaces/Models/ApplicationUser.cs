@@ -4,7 +4,7 @@ namespace SaferSpacesClient.Models
 {
   public class ApplicationUser : IdentityUser
   {
-    // public IdentityUser (string userName);  IS THIS CORRECT?
+    // public string UserRole { get; set; } = "User";
   }
 }
 

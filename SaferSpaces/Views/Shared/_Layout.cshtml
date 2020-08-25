@@ -31,9 +31,10 @@
         }
         else
         {
-          <li><a>@Html.ActionLink("Register", "Register")</a> <span>|</span> <a>@Html.ActionLink("Log in", "Login")</a></li>
+          <p>@Html.ActionLink("Register", "Register", "Account") | @Html.ActionLink("Log in", "Login", "Account")</p>
         }
       </ul>
+      <h1>_Layout View</h1>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

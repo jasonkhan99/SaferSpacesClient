@@ -13,7 +13,7 @@ namespace SaferSpacesClient.Controllers
     private readonly UserManager<ApplicationUser> _userManager; //helps manage saving and updating user account information
     private readonly SignInManager<ApplicationUser> _signInManager; //provides functionality for users to log into their accounts
 
-    public AccountController (UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, SaferSpacesClientContext db)
+    public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, SaferSpacesClientContext db)
     {
       //inject userManager and signInManager services into the constructor so that our controller will have access to these services as needed
       _userManager = userManager;
@@ -21,20 +21,20 @@ namespace SaferSpacesClient.Controllers
       _db = db;
     }
 
-    public ActionResult Index()
+    public ActionResult Register()
     {
       return View();
     }
 
     [HttpPost] //creating user accounts will be asynchronous 
     // Task = built in class, represents async actions that haven't been completed yet
-    public async Task<ActionResult> Register (RegisterViewModel model)
+    public async Task<ActionResult> Register(RegisterViewModel model)
     {
-      var user = new ApplicationUser { UserName = model.Email };
+      var user = new ApplicationUser { UserName = model.UserName };
       IdentityResult result = await _userManager.CreateAsync(user, model.Password);
-      if(result.Succeeded)
+      if (result.Succeeded)
       {
-        return RedirectToAction("Index");
+        return RedirectToAction("Login");//need to update
       }
       else
       {
@@ -50,11 +50,11 @@ namespace SaferSpacesClient.Controllers
     [HttpPost]
     public async Task<ActionResult> Login(LoginViewModel model)
     {
-      Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: true, lockoutOnFailure: false);
-      if(result.Succeeded)
+      Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, isPersistent: true, lockoutOnFailure: false);
+      if (result.Succeeded)
       {
-        return RedirectToAction("Index");
-      } 
+        return RedirectToAction("Index", "Home");
+      }
       else
       {
         return View();
@@ -65,7 +65,7 @@ namespace SaferSpacesClient.Controllers
     public async Task<ActionResult> LogOff()
     {
       await _signInManager.SignOutAsync();
-      return RedirectToAction("Index");
+      return RedirectToAction("Index", "Home");
     }
   }
 }

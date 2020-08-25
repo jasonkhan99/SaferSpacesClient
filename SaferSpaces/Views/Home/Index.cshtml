@@ -1,8 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+
+<h1>Home Page</h1>
+
 @using System.Security.Claims 
 
-NAVBAR WITH LOGIN/REGISTER LINKS AT TOP OR LOGOFF
+@* NAVBAR WITH LOGIN/REGISTER LINKS AT TOP OR LOGOFF *@
 
-@if (User.Identity.IsAuthenticated)
+@* @if (User.Identity.IsAuthenticated)
 {
   @using (Html.BeginForm("LogOff", "Account"))
   {
@@ -16,4 +22,4 @@ else
 }
 
 
-<button>@Html.ActionLink("Create an account", "Index", "Account")</button>
+<button>@Html.ActionLink("Create an account", "Index", "Account")</button> *@

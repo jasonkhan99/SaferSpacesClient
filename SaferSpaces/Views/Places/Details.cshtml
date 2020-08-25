@@ -1,13 +1,12 @@
-@* @{
+@{
   Layout = "_Layout";
 }
 
-
-@* <h1>Review Details</h1>
-
+<h1>Places Details</h1> 
 
 
-@model SaferSpacesClient.Models;
+
+@* @model SaferSpacesClient.Models;
 
 <h2>Place Details</h2>
 <hr />
@@ -30,7 +29,5 @@ else
     {
       @Html.Hidden("joinId", @join.EngineerMachineId)
       <input type="submit" value="Delete"/>
-    }
-  }
-  </ul>
-} *@
+    @* }
+  </ul> *@
