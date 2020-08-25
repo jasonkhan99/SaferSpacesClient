@@ -1,4 +1,4 @@
-@{
+@* @{
   Layout = "_Layout";
 }
 
@@ -7,7 +7,7 @@
 @using System.Security.Claims 
 @* gives access to User.Identity properties such as IsAuthenticated and Name *@
 
-<h2>Authentication with Identity</h2>
+@* <h2>Authentication with Identity</h2>
 <hr />
 
 @if (User.Identity.IsAuthenticated)
@@ -25,4 +25,4 @@ else
 }
 
 <button>@Html.ActionLink("Register", "Register")</button>
-<button>@Html.ActionLink("Home", "Index", "Home")</button>
+<button>@Html.ActionLink("Home", "Index", "Home")</button> *@ 

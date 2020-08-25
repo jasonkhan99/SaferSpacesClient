@@ -12,41 +12,41 @@ namespace SaferSpacesClient.Controllers
   {
     public IActionResult Index()
     {
-      var allPlaces = Places.GetPlaces();
+      var allPlaces = Place.GetPlaces();
       return View(allPlaces);
     }
 
     [HttpPost]
-    public IActionResult Index(Places places)
+    public IActionResult Index(Place place)
     {
-      Places.Post(places);
+      Place.Post(place);
       return RedirectToAction("Index");
     }
 
     public IActionResult Details(int id)
     {
-      var places = Places.GetDetails(id);
-      return View(places);
+      var thisPlace = Place.GetDetails(id);
+      return View(thisPlace);
     }
 
     public IActionResult Edit(int id)
     {
-      var places = Places.GetDetails(id);
-      return View(places);
+      var place = Place.GetDetails(id);
+      return View(place);
     }
 
     // is this really Post route for Edit?
     [HttpPost]
-    public IActionResult Details(int id, Places places)
+    public IActionResult Details(int id, Place place)
     {
-      places.PlacesId = id;
-      Places.Put(places);
+      place.PlaceId = id;
+      Place.Put(place);
       return RedirectToAction("Details", id);
     }
 
     public IActionResult Delete(int id)
     {
-      Places.Delete(id);
+      Place.Delete(id);
       return RedirectToAction("Index");
     }
     //need Create get and post, Details get, Edit get and post, Delete post

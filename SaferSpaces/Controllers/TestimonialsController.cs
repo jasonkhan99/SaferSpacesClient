@@ -12,8 +12,8 @@ namespace SaferSpacesClient.Controllers
   {
     public IActionResult Index()
     {
-      var allTestimonials = Testimonial.GetEvents();
-      return View(allEvents);
+      var allTestimonials = Testimonial.GetTestimonials();
+      return View(allTestimonials);
     }
 
     [HttpPost]

@@ -11,4 +11,12 @@
 <li>Type: @Model.Type</li>
 <li>Address: @Model.Address</li>
 <li>Restroom: @Model.RestroomFeatures</li>
-</ul>
+
+  @foreach(Event gathering in Model)
+  {
+    <li>@Html.ActionLink($"{place.Name}", "Details", new { id = gathering.EventId })</li>
+  }</ul>
+
+
+<p>@Html.ActionLink("Add a video to the library", "Create")</p>n event
+<p>@Html.ActionLink("Home", "Index", "Customers")</p>
