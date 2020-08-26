@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8">
     <title>Safer Spaces</title>
-    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'>
+    @* <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'> *@
     <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/css/styles.css">
 </head>
 <body>
@@ -38,7 +39,8 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
+  <div class="container">
     @RenderBody()    
+  </div>
 </body>
 </html>
