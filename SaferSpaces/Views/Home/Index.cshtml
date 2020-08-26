@@ -4,6 +4,13 @@
 
 <h1>Home Page</h1>
 
+@using (Html.BeginForm("Index", "Places"))
+{
+  @Html.TextBox("searchRequest")
+
+  <input type="submit" value="Go!"/>
+}
+
 @using System.Security.Claims 
 
 @* NAVBAR WITH LOGIN/REGISTER LINKS AT TOP OR LOGOFF *@
