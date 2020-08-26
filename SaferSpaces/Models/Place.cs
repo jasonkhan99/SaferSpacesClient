@@ -12,7 +12,7 @@ namespace SaferSpacesClient.Models
       this.Events = new HashSet<Event>();
       this.Testimonials = new HashSet<Testimonial>();
     }
-    public int PlaceId { get; set; }
+    public string Place_Id { get; set; }
     public string Name { get; set; }
     public List<string> Types { get; set; }
     public string Formatted_Address { get; set; }
@@ -30,6 +30,17 @@ namespace SaferSpacesClient.Models
 
       return placeList;
     }
+
+    public static Place GetDetails(string apiKey, string id)
+    {
+      var apiCallTask = ApiHelper.ApiSpecific(apiKey, id);
+      var result = apiCallTask.Result;
+
+      JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+      Place place = JsonConvert.DeserializeObject<Place>(jsonResponse.ToString());
+
+      return place;
+    }
     // public static List<Place> GetPlaces()
     // {
     //   var apiCallTask = ApiHelper.GetAllPlaces();
@@ -41,31 +52,31 @@ namespace SaferSpacesClient.Models
     //   return placeList;
     // }
 
-    public static Place GetDetails(int id)
-    {
-      var apiCallTask = ApiHelper.GetPlace(id);
-      var result = apiCallTask.Result;
-      JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
-      Place place = JsonConvert.DeserializeObject<Place>(jsonResponse.ToString());
-      return place;
-    }
+    // public static Place GetDetails(int id)
+    // {
+    //   var apiCallTask = ApiHelper.GetPlace(id);
+    //   var result = apiCallTask.Result;
+    //   JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+    //   Place place = JsonConvert.DeserializeObject<Place>(jsonResponse.ToString());
+    //   return place;
+    // }
 
-    public static void Post(Place place)
-    {
-      string jsonPlace = JsonConvert.SerializeObject(place);
-      var apiCallTask = ApiHelper.PostPlace(jsonPlace);
-    }
+    // public static void Post(Place place)
+    // {
+    //   string jsonPlace = JsonConvert.SerializeObject(place);
+    //   var apiCallTask = ApiHelper.PostPlace(jsonPlace);
+    // }
 
-    public static void Put(Place place)
-    {
-      string jsonPlace = JsonConvert.SerializeObject(place);
-      var apiCallTask = ApiHelper.PutPlace(place.PlaceId, jsonPlace);
-    }
+    // public static void Put(Place place)
+    // {
+    //   string jsonPlace = JsonConvert.SerializeObject(place);
+    //   var apiCallTask = ApiHelper.PutPlace(place.PlaceId, jsonPlace);
+    // }
 
-    public static void Delete(int id)
-    {
-      var apiCallTask = ApiHelper.DeletePlace(id);
-    }
+    // public static void Delete(int id)
+    // {
+    //   var apiCallTask = ApiHelper.DeletePlace(id);
+    // }
   }
 
   public enum Restroom
