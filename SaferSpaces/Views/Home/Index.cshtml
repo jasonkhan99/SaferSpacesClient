@@ -4,29 +4,15 @@
 
 <h1>Home Page</h1>
 
-@using (Html.BeginForm("Index", "Places"))
+@using (Html.BeginForm("Index", "Places", new { @class="form-inline my-2 my-lg-0 form-control", @placeholder = "Search venues"}))
 {
   @Html.TextBox("searchRequest")
 
-  <input type="submit" value="Go!"/>
+  <input type="submit" value="Go!" class="form-control mr-sm-2"/>
 }
 
-@using System.Security.Claims 
-
-@* NAVBAR WITH LOGIN/REGISTER LINKS AT TOP OR LOGOFF *@
-
-@* @if (User.Identity.IsAuthenticated)
-{
-  @using (Html.BeginForm("LogOff", "Account"))
-  {
-    <button type="submit" class="btn btn-default">Log Out</button>
-  }
-}
-else
-{
-  <button>@Html.ActionLink("Register", "Register")</button>
-  <button>@Html.ActionLink("Log in", "Login")</button>
-}
-
-
-<button>@Html.ActionLink("Create an account", "Index", "Account")</button> *@
+@* // @using (Html.BeginForm("Index", "Treats",  new { @class= "form-inline my-2 my-lg-0" }))
+          {
+            <input class="form-control mr-sm-2" type="text" placeholder="Treat Description">
+            <button class="btn my-2 my-sm-0" type="submit">Search Treats</button>
+          }       *@
