@@ -14,22 +14,32 @@ namespace SaferSpacesClient.Models
     }
     public int PlaceId { get; set; }
     public string Name { get; set; }
-    public string Type { get; set; }
-    public string Address { get; set; }
+    public List<string> Types { get; set; }
+    public string Formatted_Address { get; set; }
     public Restroom RestroomFeatures { get; set; }
     public virtual ICollection<Event> Events { get; set; }
     public virtual ICollection<Testimonial> Testimonials { get; set; }
 
-    public static List<Place> GetPlaces()
+    public static List<Place> GetPlaces(string apiKey, string searchRequest)
     {
-      var apiCallTask = ApiHelper.GetAllPlaces();
+      var apiCallTask = ApiHelper.ApiCall(apiKey, searchRequest);
       var result = apiCallTask.Result;
 
-      JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
-      List<Place> placeList = JsonConvert.DeserializeObject<List<Place>>(jsonResponse.ToString());
+      JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+      List<Place> placeList = JsonConvert.DeserializeObject<List<Place>>(jsonResponse["results"].ToString());
 
       return placeList;
     }
+    // public static List<Place> GetPlaces()
+    // {
+    //   var apiCallTask = ApiHelper.GetAllPlaces();
+    //   var result = apiCallTask.Result;
+
+    //   JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
+    //   List<Place> placeList = JsonConvert.DeserializeObject<List<Place>>(jsonResponse.ToString());
+
+    //   return placeList;
+    // }
 
     public static Place GetDetails(int id)
     {

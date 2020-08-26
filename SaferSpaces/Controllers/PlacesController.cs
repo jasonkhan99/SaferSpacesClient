@@ -10,11 +10,16 @@ namespace SaferSpacesClient.Controllers
 {
   public class PlacesController : Controller
   {
-    public IActionResult Index()
+    public IActionResult Index(string searchRequest)
     {
-      var allPlaces = Place.GetPlaces();
+      var allPlaces = Place.GetPlaces(EnvironmentVariables.ApiKey, searchRequest);
       return View(allPlaces);
     }
+    // public IActionResult Index()
+    // {
+    //   var allPlaces = Place.GetPlaces();
+    //   return View(allPlaces);
+    // }
 
     [HttpPost]
     public IActionResult Index(Place place)
