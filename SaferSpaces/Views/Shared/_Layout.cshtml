@@ -13,7 +13,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarColor02">
+  <div class="collapse navbar-collapse fix-margin" id="navbarColor02">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <div class="menu">
@@ -36,11 +36,11 @@
       <li class="nav-item">
       @if (User.Identity.IsAuthenticated)
       {
-      <li class="nav-link">Hello, @User.Identity.Name!</li>
+      <li class="nav-link">Hello, @User.Identity.Name!</li> // maybe .UserName ?
       }
       </li>
       </div>
-    </ul>
+    </ul>   
   </div>
 </nav>
 <br>
