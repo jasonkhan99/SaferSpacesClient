@@ -65,7 +65,7 @@ p {
   margin-right: auto;
 }
 
-.input-style-login {
+.input-style-login, .input-style-register {
   height: 100%;
   opacity: 0.8;
   margin-top: 200px;
@@ -76,26 +76,15 @@ p {
   padding: 50px;
 }
 
-.login-form {
+.login-form, .register-form {
   padding: 30% 20%;
   height: 100%; 
   opacity: .70;
 }
 
 .input-text {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
-
-/* .input-style-login{
-  width: 60%;
-  height: auto;
-  opacity: 0.8;
-  margin-left: auto;
-  margin-right: auto;
-  border: .5px solid lightgrey ;
-  border-radius: 2%;
-  padding: 50px;
-} */
 
 .form {
   margin-top: 100px;
@@ -116,4 +105,34 @@ p {
   right: 0px;
   padding: 10px 12px;
   pointer-events: none;
+}
+
+/* @media screen and (min-width: 500px) {
+  .input-text {
+    font-size: 1rem;
+    color: red;
+  }
+
+  .input-style-login{
+    width: 60%;
+    height: auto;
+    opacity: 0.8;
+  } */
+/* } */
+
+@media screen and (min-width: 500px){
+  .input-style-login, .input-style-register {
+    width: 60%;
+    height: auto;
+    opacity: 0.8;
+    margin-left: auto;
+    margin-right: auto;
+    border: .5px solid lightgrey ;
+    border-radius: 2%;
+    padding: 50px;
+  }
+
+  /* .input-text {
+    font-size: 1rem;
+  } */
 }
