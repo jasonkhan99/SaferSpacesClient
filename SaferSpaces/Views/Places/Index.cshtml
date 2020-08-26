@@ -3,18 +3,19 @@
 }
 
 
-<h1>Places Index</h1>
-
 <ol>
-@foreach (Place place in Model)
-{
-    <ul>
-        <li>Name: @place.Name</li>
-        <li>Address: @place.Formatted_Address</li>
-        <li>Types: @String.Join(", ", place.Types)</li>
-    </ul>
-    <br>
-}
+  <div class="grid-container">
+    @foreach (Place place in Model)
+    {
+      <div class="grid-item">
+          <ul>
+              <li>Name: @place.Name</li>
+              <li>Address: @place.Formatted_Address</li>
+              <li>Types: @String.Join(", ", place.Types)</li>
+          </ul>
+      </div>
+    }
+  </div>
 </ol>
 
 

@@ -120,6 +120,22 @@ p {
   } */
 /* } */
 
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1em;
+  grid-auto-rows: minmax(200px, auto);
+}
+
+.grid-item {
+  padding: 1em;
+  border-radius: 5px;
+  box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.06);
+  border: .5px solid lightgrey ;
+  border-radius: 2%;
+  text-align: left
+}
+
 @media screen and (min-width: 500px){
   .input-style-login, .input-style-register {
     width: 60%;
