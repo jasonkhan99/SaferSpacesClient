@@ -5,9 +5,12 @@
 <div class="form">
   @using (Html.BeginForm("Index", "Places", new { @class="form-inline my-2 my-lg-0 form-control"}))
   {
-    @Html.TextBox("searchRequest", null, new {@class="form-control box-style", @placeholder = "Search venues"})
-
-    <input id="search-btn" type="submit" value="Go!" class="form-control mr-sm-2 btn btn-secondary"/>
+    <div class="row">
+      <div class="col-sm-12">
+        @Html.TextBox("searchRequest", null, new {@class="form-control box-style search-align", @placeholder = "Search venues"})
+        <input id="search-btn" type="submit" value="Go!" class="form-control mr-sm-2 btn btn-secondary search-align"/>
+      </div>
+    </div>
   }
 </div>
 
