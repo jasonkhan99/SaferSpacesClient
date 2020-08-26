@@ -121,6 +121,7 @@ _Please feel free to contact the authors through GitHub (LINDGRENBA) with any fe
 
 Photo <span>Photo by <a href="https://unsplash.com/@lexscope?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">LexScope</a> on <a href="https://unsplash.com/s/photos/bar?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 
+
 Copyright (c) 2020 **_{Brittany Lindgren}_**
 
 Notes to Myself to add for Identity
