@@ -6,7 +6,7 @@ namespace SaferSpacesClient.Models
 {
   class ApiHelper
   {
-    //Events API Helper Methods
+    //GOOGLE CALLS
     public static async Task<string> ApiCall(string apiKey, string searchRequest)
     {
       RestClient client = new RestClient("https://maps.googleapis.com");
@@ -22,6 +22,8 @@ namespace SaferSpacesClient.Models
       var response = await client.ExecuteTaskAsync(request);
       return response.Content;
     }
+
+     //Events API Helper Methods
     public static async Task<string> GetAllEvents()
     {
       ///do we need to pass the API key here?
@@ -64,6 +66,7 @@ namespace SaferSpacesClient.Models
       request.AddHeader("Content-Type", "application/json");
       var response = await client.ExecuteTaskAsync(request);
     }
+    
     // Places API Helper
     public static async Task<string> GetAllPlaces()
     {
