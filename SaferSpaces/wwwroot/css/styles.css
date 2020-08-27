@@ -77,7 +77,7 @@ p {
   margin-top: 5%;
 }
 
-.input-text {
+.input-text, .testimonial-input {
   font-size: 1.5rem;
 }
 
@@ -106,15 +106,9 @@ p {
   padding: 50px;
 }
 
-.input-style-testimonial {
+.input-style-testimonial, .input-style-events {
   font-size: 1.5rem;
 }
-
-/* 
-CAN WE MAKE TEXT INSIDE TEXTAREA LARGER? MORE USER FRIENDLY?
-textarea .testmonial-input {
-  font-size: 5rem;
-} */
 
 .login-form, .register-form  {
   padding: 30% 20%;
