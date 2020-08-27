@@ -26,6 +26,10 @@ body {
 
 }
 
+.greeting {
+  font-size: 16pt;
+}
+
 .nav-item {
   margin-left: auto;
 }

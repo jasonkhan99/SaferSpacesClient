@@ -34,10 +34,10 @@
         </div>
       </li>
       <div id="welcome">
-      <li class="nav-item">
+      <li class="nav-item greeting">
       @if (User.Identity.IsAuthenticated)
       {
-      <li class="nav-link">Hello, @User.Identity.Name!</li> // maybe .UserName ?
+      <li class="nav-link">Hi there, @User.Identity.Name!</li> 
       }
       </li>
       </div>

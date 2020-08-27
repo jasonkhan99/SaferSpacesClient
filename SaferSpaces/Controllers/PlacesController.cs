@@ -22,12 +22,51 @@ namespace SaferSpacesClient.Controllers
       return View(specificPlace);
     }
 
-    public IActionResult AddTestimonials()
+    public IActionResult AddTestimonials(string id)
     {
-      return View();
+      var place = new Place();
+      place.Place_Id = id;
+      return View(place);
     }
 
     // [HttpPost]
+    // public IActionResult AddTestimonials(string place_id, Testimonial testimonial)
+    // {
+    //   if(place_id != null)
+    //   {
+    //     PlaceTestimonial.Post(new PlaceTestimonial() {TestimonialId = testimonial.TestimonialId, Place_Id = place_id});
+    //   }
+    //   return RedirectToAction("Details");
+    // }
+
+    [HttpPost, ActionName("AddTestimonials")]
+    public IActionResult AddNewTestimonial(string place_id, Testimonial testimonial)
+    {
+      if(place_id != null)
+      {
+        Testimonial.Post(place_id, testimonial);
+      }
+      return RedirectToAction("Details");
+    }
+
+
+    // public static void Post(Animal animal)
+    // {
+    //   string jsonAnimal = JsonConvert.SerializeObject(animal);
+    //   var apiCallTask = ApiHelper.Post(jsonAnimal);
+    // }
+// [HttpPost]
+//     public ActionResult AddEngineer(Machine machine, int EngineerId)
+//     {
+//       if(EngineerId != 0)
+//       {
+//         _db.EngineerMachine.Add(new EngineerMachine() {MachineId = machine.MachineId, EngineerId = EngineerId});
+//       }
+//       _db.SaveChanges();
+//       return RedirectToAction("Index");
+//     }
+
+    //  [HttpPost]
     // public IActionResult Create(Place place)
     // {
     //   Place.Post(place);
