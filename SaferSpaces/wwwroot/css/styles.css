@@ -98,6 +98,7 @@ p {
   height: 100%;
   opacity: 0.8;
   margin-top: 200px;
+  margin-bottom: 50px;
   margin-left: auto;
   margin-right: auto;
   border: .5px solid lightgrey ;
@@ -105,11 +106,23 @@ p {
   padding: 50px;
 }
 
-.login-form, .register-form, .testimonial-form  {
+.input-style-testimonial {
+  font-size: 1.5rem;
+}
+
+/* 
+CAN WE MAKE TEXT INSIDE TEXTAREA LARGER? MORE USER FRIENDLY?
+textarea .testmonial-input {
+  font-size: 5rem;
+} */
+
+.login-form, .register-form  {
   padding: 30% 20%;
   height: 100%; 
   opacity: .70;
 }
+
+/* CONTAINERS */
 
 .about {
   padding: 10% 10%;
