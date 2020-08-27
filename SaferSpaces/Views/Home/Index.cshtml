@@ -1,1 +1,31 @@
-<button>@Html.ActionLink("Create an account", "Index", "Account")</button>
+@{
+  Layout = "_Layout";
+}
+
+<div id="welcome">
+      @if (User.Identity.IsAuthenticated)
+      {
+      <p class="greeting">Hi there, @User.Identity.Name!</p> 
+      }
+      </li>
+      </div>
+<div class="form">
+  @using (Html.BeginForm("Index", "Places", new { @class="form-inline my-2 my-lg-0 form-control"})) //needs null?
+  {
+    <div class="row">
+      <div class="col-sm-12">
+        @Html.TextBox("searchRequest", null, new {@class="form-control input-style-home search-align", @placeholder = "Search venues"})
+        <input id="search-btn" type="submit" value="Go!" class="form-control mr-sm-2 btn btn-secondary search-align"/>
+      </div>
+    </div>
+  }
+</div>
+
+<div class="about-box">
+  <div class="about">
+    <h3>About Safer Spaces</h3>
+    <p>Safer Spaces is a community supported app for people to report incidents at various nightlife locations. We aim to foster communication and transparency about local venues so that everyone can feel safer when they go out at night. This project depends on you! The more testimonials you add, the better picture we all get of what's going on. 
+</p>
+  </div>
+</div>
+

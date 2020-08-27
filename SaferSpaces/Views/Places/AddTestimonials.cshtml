@@ -1,0 +1,49 @@
+@{
+  Layout = "_Layout";
+}
+
+@model SaferSpacesClient.Models.Place
+
+@* @using (Html.BeginForm())
+{
+  @Html.Hidden("Place_Id", new { place_id = @Model.Place_Id })
+
+  @Html.Display(model => model.Story)
+  @Html.TextBox(model => model.Story)
+
+  @Html.Display(model => model.Management)
+  @Html.TextBox(model => model.Management)
+
+  @Html.Display(model => model.Other)
+  @Html.TextBox(model => model.Other)
+
+  <input type="submit", value="Save"/>
+} *@
+<div class="testimonial-form input-style-testimonial">
+
+  <h1>Add a Testimonial for this Venue</h1>
+
+  <form action="/addtestimonials" method="post">
+
+    @* @Html.Hidden("Place_Id", new { place_id = @Model.Place_Id }) *@
+
+    <div class="form-group">
+      <label for="story">Tell your story:</label>
+      <textarea id="story" class="form-control mr-sm-2 testimonial-input" name="story" type="text" rows="4" wrap="hard" autofocus="autofocus"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="management">Did management get involved and were they helpful?</label>
+      <textarea id="management" class="form-control mr-sm-2 testimonial-input" name="management" type="text" rows="4" wrap="hard"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="other">Is there anything else people should know?</label>
+      <textarea id="other" class="form-control mr-sm-2 testimonial-input" name="other" type="text" rows="4" wrap="hard"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary testimony-btn">Submit this Testimonial</button>
+
+  </form>
+
+</div>

@@ -3,19 +3,24 @@
 }
 
 @using SaferSpacesClient.ViewModels;
-
 @model LoginViewModel
 
-<h2>Log in with your account</h2>
-<hr />
+
+<div class="login-form input-style-login">
+<h3 class="input-text"> Welcome Back! </h3>
+
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(m => m.Email)
-    @Html.TextBoxFor(m => m.Email)
-    // DO WE WANT THIS TO BE USERNAME???
-
-    @Html.LabelFor(m => m.Password)
-    @Html.PasswordFor(m => m.Password)
-
-    <button type="submit" class="btn btn-default">Log In</button>
-}
+  <div class="form-group">
+    <label for="UserName"></label>
+    @Html.TextBoxFor(m => m.UserName, null, new {@class="form-control input-text", @placeholder="username"})
+  </div>
+  <div class="form-group">
+    <label for="Password"></label>
+    @Html.PasswordFor(m => m.Password, new {@class="form-control input-text", @placeholder="password"})
+  </div>
+  <button type="submit" class="btn btn-secondary input-text">Log In</button> 
+  <p class="login-msg input-text">Not a returning user? @Html.ActionLink("Register", "Register")</p>
+  
+  }
+</div>

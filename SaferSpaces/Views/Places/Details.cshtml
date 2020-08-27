@@ -1,14 +1,33 @@
+
 @{
   Layout = "_Layout";
 }
 
-@{
-  ViewData["Title"] = "Details";
-}
+@model SaferSpacesClient.Models.Place
 
-<h1>@Model.Name</h1>
-<ul>
-<li>Type: @Model.Type</li>
-<li>Address: @Model.Address</li>
-<li>Restroom: @Model.RestroomFeatures</li>
-</ul>
+<h1>Details for this location:</h1>
+<div class="grid-container">
+  <div class="details-grid-item">
+    <h1>@Model.Name</h1>
+    <p>@Model.Formatted_Address</p>
+    @if(Model.Events.Count == 0)
+    {
+      <p>No events have been added here yet. Add an event: @Html.ActionLink("Add", "AddEvents", new {id = Model.Place_Id} )</p>
+    }
+    else
+    {
+      <h3>@Model.Events.Count</h3>
+      <p> Add an event: @Html.ActionLink("Add", "AddEvents", new {id = Model.Place_Id} )</p>
+    }
+    @if(Model.Testimonials.Count == 0)
+    {
+      <p>No testimonials have been written yet. Add a testimonial: @Html.ActionLink("Add", "AddTestimonials", new {id = Model.Place_Id} )</p>
+    }
+    else
+    {
+      <h3>@Model.Testimonials.Count</h3>
+      <p> Add a testimonial: @Html.ActionLink("Add", "AddTestimonials", new {id = Model.Place_Id} )</p>
+    }
+  </div>
+</div>
+

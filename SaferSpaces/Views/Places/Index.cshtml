@@ -1,30 +1,19 @@
-@* @{
-  Layout = "_Layout";    TEMPLATE
+@{
+  Layout = "_Layout";
 }
 
-@using ToDoList.Models;
-@model IEnumerable<ToDoList.Models.Item>
-
-<h1>Items for @User.Identity.Name</h1>
-
-
-
-@if (Model.Any())
-***Any() will return true if the Model contains *any* items
-
-{
-  <ul>
-    @foreach (Item item in Model)
+<h3> Search Results </h3>
+<ol>
+  <div class="grid-container">
+    @foreach (Place place in Model)
     {
-      <li>@Html.ActionLink($"{item.Description}", "Details", new { id = item.ItemId })</li>
+      <div class="grid-item">
+          <ul>
+              <li>Name: @Html.ActionLink($"{@place.Name}", "Details", new {id = @place.Place_Id})</li>
+              <li>Address: @place.Formatted_Address</li>
+              
+          </ul>
+      </div>
     }
-  </ul>
-} 
-else
-{
-  <h3>No items have been added yet!</h3>
-}
-
-<p>@Html.ActionLink("Add new item", "Create")</p>
-
-<p>@Html.ActionLink("Home", "Index", "Home")</p> *@
+  </div>
+</ol>

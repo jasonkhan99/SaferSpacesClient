@@ -1,0 +1,17 @@
+<h1>Testimonials for this Event</h1>
+
+@* @foreach(var join in EventTestimonial) *@
+@* HOW ARE WE GETTING THIS FROM THE API? *@
+{
+  <div class="testimonial-div">
+    <h3>Tell your story:</h3>
+    <p>@Model.Story</p>
+    <h3>Did management get involved and were they helpful?</h3>
+    <p>@Model.Management</p>
+    <h3>Is there anything else people should know?</h3>
+    <p>@Model.Other</p>
+  </div>
+}
+
+<a href="/..../Edit/@(Model.PlaceId)">Edit</a>
+<a href="/..../Delete/@(Model.PlaceId)">Delete Review</a>
