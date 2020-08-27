@@ -19,13 +19,4 @@
   <input id="additional" name="additional" type="text">
 
   <button type="submit">Submit this Testimonial</button>
-
 </form>
-
-@* 
-@using (Html.BeginForm("Index", "Testimonial", FormMethod.Post))
-{
-    <div class="form-group">
-      <label for="Story">Tell your story:</label>
-      @Html.TextBoxFor(m => m.UserName, null, new {@class="form-control input-text", @placeholder="choose a username"})
-    </div> *@
