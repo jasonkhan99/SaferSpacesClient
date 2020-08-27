@@ -2,6 +2,13 @@
   Layout = "_Layout";
 }
 
+<div id="welcome">
+      @if (User.Identity.IsAuthenticated)
+      {
+      <p class="greeting">Hi there, @User.Identity.Name!</p> 
+      }
+      </li>
+      </div>
 <div class="form">
   @using (Html.BeginForm("Index", "Places", new { @class="form-inline my-2 my-lg-0 form-control"})) //needs null?
   {

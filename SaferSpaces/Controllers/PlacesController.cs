@@ -10,33 +10,38 @@ namespace SaferSpacesClient.Controllers
 {
   public class PlacesController : Controller
   {
-    // public IActionResult Index(string searchRequest)
-    // {
-    //   var allPlaces = Place.GetPlaces(EnvironmentVariables.ApiKey, searchRequest);
-    //   return View(allPlaces);
-    // }
-    // public IActionResult Details(string id)
-    // {
-    //   var specificPlace = Place.GetDetails(EnvironmentVariables.ApiKey, id);
-    //   Console.WriteLine(specificPlace);
-    //   return View(specificPlace);
-    // }
+    public IActionResult Index(string searchRequest)
+    {
+      var allPlaces = Place.GetPlaces(EnvironmentVariables.ApiKey, searchRequest);
+      return View(allPlaces);
+    }
+    public IActionResult Details(string id)
+    {
+      var specificPlace = Place.GetDetails(EnvironmentVariables.ApiKey, id);
+      Console.WriteLine(specificPlace);
+      return View(specificPlace);
+    }
 
     public IActionResult AddTestimonials()
     {
       return View();
     }
 
-<<<<<<< HEAD
-    public IActionResult AddTestimonials(string id)
-=======
-    public IActionResult AddEvents()
->>>>>>> main
+    [HttpPost, ActionName("AddTestimonials")]
+    public IActionResult AddNewTestimonial(string place_id, Testimonial testimonial)
     {
-      var place = new Place();
-      place.Place_Id = id;
-      return View(place);
+      if(place_id != null)
+      {
+        Testimonial.Post(place_id, testimonial);
+      }
+      return RedirectToAction("Details");
     }
+    // public IActionResult AddTestimonials(string id)
+    // {
+    //   var place = new Place();
+    //   place.Place_Id = id;
+    //   return View(place);
+    // }
 
     // [HttpPost, ActionName("AddEvents")]
     // public ActionResult ConfirmAddEvents(int Place_Id, Event gathering)
@@ -59,15 +64,6 @@ namespace SaferSpacesClient.Controllers
     //   return RedirectToAction("Details");
     // }
 
-    [HttpPost, ActionName("AddTestimonials")]
-    public IActionResult AddNewTestimonial(string place_id, Testimonial testimonial)
-    {
-      if(place_id != null)
-      {
-        Testimonial.Post(place_id, testimonial);
-      }
-      return RedirectToAction("Details");
-    }
 
 
     // public static void Post(Animal animal)
