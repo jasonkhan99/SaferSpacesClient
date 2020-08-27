@@ -27,6 +27,22 @@ namespace SaferSpacesClient.Controllers
       return View();
     }
 
+    public IActionResult AddEvents()
+    {
+      return View();
+    }
+
+    // [HttpPost, ActionName("AddEvents")]
+    // public ActionResult ConfirmAddEvents(int Place_Id, Event gathering)
+    // {
+      // if(Place_Id != 0)
+      // {
+      //   Add the join relationship to the database EventPlace
+      // }
+      // then save the changes
+    //   return RedirectToAction("Index");
+    // }
+
     // [HttpPost]
     // public IActionResult Create(Place place)
     // {

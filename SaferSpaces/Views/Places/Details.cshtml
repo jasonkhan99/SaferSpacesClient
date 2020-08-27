@@ -3,11 +3,23 @@
   Layout = "_Layout";
 }
 
-<h1>Places Details</h1>
+@model SaferSpacesClient.Models.Place
+
+<h1>Details for this location:</h1>
 <div class="grid-container">
-  <div class="grid-item">
+  <div class="details-grid-item">
     <h1>@Model.Name</h1>
     <p>@Model.Formatted_Address</p>
-    <li> Add a testimonial: @Html.ActionLink("Add", "AddTestimonials", new {id = Model.Place_Id} )
+    @if(Model.Events.Count == 0)
+    {
+      <p>No events have been added here yet. Add an event: @Html.ActionLink("Add", "AddEvents", new {id = Model.Place_Id} )</p>
+    }
+    @if(Model.Testimonials.Count == 0)
+    {
+      <p>No testimonials have been written yet. Add a testimonial: @Html.ActionLink("Add", "AddTestimonials", new {id = Model.Place_Id} )</p>
+    }
+    <p> Add an event: @Html.ActionLink("Add", "AddEvents", new {id = Model.Place_Id} )</p>
+    <p> Add a testimonial: @Html.ActionLink("Add", "AddTestimonials", new {id = Model.Place_Id} )</p>
   </div>
 </div>
+

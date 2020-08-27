@@ -1,24 +1,30 @@
 @{
   Layout = "_Layout";
 }
-<div class="register-form input-style-register">
 
-<h1>Add a Testimonial for this Venue</h1>
+<div class="testimonial-form input-style-testimonial">
 
-<form action="/addtestimonials" method="post">  
-@* IS ACTIONROUTE INCORRECT? *@
+  <h1>Add a Testimonial for this Venue</h1>
 
-  <label for="story">Tell your story:</label>
-  <input id="story" class="form-control mr-sm-2" name="story" type="text">
+  <form action="/addtestimonials" method="post">  
 
-  <label for="management">Did management get involved and were they helpful?</label>
-  <input id="management" class="form-control mr-sm-2" name="management" type="text">
+    <div class="form-group">
+      <label for="story">Tell your story:</label>
+      <textarea id="story" class="form-control mr-sm-2 testimonial-input" name="story" type="text" rows="4" wrap="hard" autofocus="autofocus"></textarea>
+    </div>
 
-  <label for="other">Is there anything else people should know?</label>
-  <input id="other" class="form-control mr-sm-2" name="other" type="text">
+    <div class="form-group">
+      <label for="management">Did management get involved and were they helpful?</label>
+      <textarea id="management" class="form-control mr-sm-2 testimonial-input" name="management" type="text" rows="4" wrap="hard"></textarea>
+    </div>
 
-  <button type="submit" class="btn btn-primary">Submit this Testimonial</button>
+    <div class="form-group">
+      <label for="other">Is there anything else people should know?</label>
+      <textarea id="other" class="form-control mr-sm-2 testimonial-input" name="other" type="text" rows="4" wrap="hard"></textarea>
+    </div>
 
-</form>
+    <button type="submit" class="btn btn-primary testimony-btn">Submit this Testimonial</button>
+
+  </form>
 
 </div>
