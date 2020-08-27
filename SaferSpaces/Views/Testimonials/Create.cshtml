@@ -4,8 +4,10 @@
 
 <h1>Testimonials Create View</h1>
 
-<h1>Add a Testimonial</h1>
+<div class="register-form input-style-register">
 
+<h1>Add a Testimonial</h1>
+<hr/>
 <form action="/testimonials" method="post">
   <label for="story">Tell your story:</label>
   <input id="story" name="story" type="text">
@@ -19,3 +21,11 @@
   <button type="submit">Submit this Testimonial</button>
 
 </form>
+
+@* 
+@using (Html.BeginForm("Index", "Testimonial", FormMethod.Post))
+{
+    <div class="form-group">
+      <label for="Story">Tell your story:</label>
+      @Html.TextBoxFor(m => m.UserName, null, new {@class="form-control input-text", @placeholder="choose a username"})
+    </div> *@

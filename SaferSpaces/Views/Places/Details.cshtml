@@ -8,5 +8,6 @@
   <div class="grid-item">
     <h1>@Model.Name</h1>
     <p>@Model.Formatted_Address</p>
+    <li> Add a testimonial: @Html.ActionLink("Add", "AddTestimonials", new {id = Model.Place_Id} )
   </div>
 </div>

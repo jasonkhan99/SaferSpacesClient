@@ -8,6 +8,7 @@ namespace SaferSpacesClient.Models
   public class Testimonial
   {
     public int TestimonialId { get; set; }
+    public string ParentPlaceId { get; set; }
 
     public string Story { get; set; }
 
