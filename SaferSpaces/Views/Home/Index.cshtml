@@ -2,31 +2,22 @@
   Layout = "_Layout";
 }
 
-<h1>Home Page</h1>
-
-@using (Html.BeginForm("Index", "Places"))
-{
-  @Html.TextBox("searchRequest")
-
-  <input type="submit" value="Go!"/>
-}
-
-@using System.Security.Claims 
-
-@* NAVBAR WITH LOGIN/REGISTER LINKS AT TOP OR LOGOFF *@
-
-@* @if (User.Identity.IsAuthenticated)
-{
-  @using (Html.BeginForm("LogOff", "Account"))
+<div class="form">
+  @using (Html.BeginForm("Index", "Places", new { @class="form-inline my-2 my-lg-0 form-control"}))
   {
-    <button type="submit" class="btn btn-default">Log Out</button>
+    <div class="row">
+      <div class="col-sm-12">
+        @Html.TextBox("searchRequest", null, new {@class="form-control input-style-home search-align", @placeholder = "Search venues"})
+        <input id="search-btn" type="submit" value="Go!" class="form-control mr-sm-2 btn btn-secondary search-align"/>
+      </div>
+    </div>
   }
-}
-else
-{
-  <button>@Html.ActionLink("Register", "Register")</button>
-  <button>@Html.ActionLink("Log in", "Login")</button>
-}
+</div>
 
+<div class="about-box">
+  <div class="about">
+    <h3>About this App</h3>
+    <p>I'm baby keytar green juice migas pug bitters, portland knausgaard truffaut live-edge brooklyn ennui next level pinterest. Butcher crucifix jean shorts master cleanse, artisan direct trade vinyl fam mixtape leggings pork belly. Pug jean shorts woke, tumblr single-origin coffee drinking vinegar la croix humblebrag post-ironic messenger bag readymade crucifix pinterest. Trust fund glossier pork belly, sriracha coloring book kogi tacos 90's vinyl cloud bread semiotics subway tile. Blue bottle vice irony post-ironic. Selfies health goth salvia art party jianbing try-hard freegan poutine hoodie you probably haven't heard of them pour-over vegan typewriter.</p>
+  </div>
+</div>
 
-<button>@Html.ActionLink("Create an account", "Index", "Account")</button> *@

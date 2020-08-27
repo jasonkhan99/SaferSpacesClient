@@ -2,26 +2,20 @@
   Layout = "_Layout";
 }
 
-<h1>Places Index</h1>
 
 <ol>
-@foreach (Place place in Model)
-{
-    <ul>
-        <li>@Html.ActionLink($"{@place.Name}", "Details", new {id = @place.Place_Id})</li>
-        <li>@place.Formatted_Address</li>
-        <li>@String.Join(", ", place.Types)</li>
-        @* <li>@using (Html.BeginForm("Create", "Places"))
-            {
-                @Html.Hidden("Name", $"{@place.Name}")
-                @Html.Hidden("Address", $"{@place.Formatted_Address}")
-                @Html.Hidden("Type", "Bar")
-                <input type="submit" value="Save and Add Details"/>
-            }
-        </li> *@
-    </ul>
-    <br>
-}
+  <div class="grid-container">
+    @foreach (Place place in Model)
+    {
+      <div class="grid-item">
+          <ul>
+              <li>Name: @Html.ActionLink($"{@place.Name}", "Details", new {id = @place.Place_Id})</li>
+              <li>Address: @place.Formatted_Address</li>
+              <li>Types: @String.Join(", ", place.Types)</li>
+          </ul>
+      </div>
+    }
+  </div>
 </ol>
 
 
