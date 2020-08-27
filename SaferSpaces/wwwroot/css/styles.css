@@ -122,7 +122,9 @@ p {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /* align-items: center;
+  background-size: cover; */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   grid-gap: 1em;
   grid-auto-rows: minmax(200px, auto);
 }

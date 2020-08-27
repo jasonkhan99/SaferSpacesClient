@@ -1,35 +1,13 @@
+
 @{
   Layout = "_Layout";
 }
 
-@model SaferSpacesClient.Models.Place
-
 <h1>Places Details</h1>
-
-<h3>@Model.Name</h3>
-
-@* @model SaferSpacesClient.Models;
-
-<h2>Place Details</h2>
-<hr />
-<h3>@Html.DisplayNameFor(model => model.PlaceName): @Html.DisplayFor(model => model.PlaceName)</h3>
-
-@if(@Model.Events.Count == 0)
-{
-  <p>This place has no events</p>
-}
-else
-{
-  <h4>Events this place contains:</h4>
-  <ul>
-  @foreach(var join in Model.Places)
-  {
-    <li>@join.Event.Events</li>
-    <li>@join.Engineer.EnrollmentDate</li>
-    
-    @using(Html.BeginForm("DeleteMachine", "Engineers"))
-    {
-      @Html.Hidden("joinId", @join.EngineerMachineId)
-      <input type="submit" value="Delete"/>
-    @* }
-  </ul> *@
+<div class="grid-container">
+  <div class="grid-item">
+    <h1>@Model.Name</h1>
+    <p>@Model.Formatted_Address</p>
+    <li> Add a testimonial: @Html.ActionLink("Add", "AddTestimonials", new {id = Model.Place_Id} )
+  </div>
+</div>

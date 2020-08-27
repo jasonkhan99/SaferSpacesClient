@@ -18,7 +18,13 @@ namespace SaferSpacesClient.Controllers
     public IActionResult Details(string id)
     {
       var specificPlace = Place.GetDetails(EnvironmentVariables.ApiKey, id);
+      Console.WriteLine(specificPlace);
       return View(specificPlace);
+    }
+
+    public IActionResult AddTestimonials()
+    {
+      return View();
     }
 
     // [HttpPost]
