@@ -9,7 +9,7 @@
     {
       <div class="grid-item">
           <ul>
-              <li>Name: @place.Name</li>
+              <li>Name: @Html.ActionLink($"{@place.Name}", "Details", new {id = @place.Place_Id})</li>
               <li>Address: @place.Formatted_Address</li>
               <li>Types: @String.Join(", ", place.Types)</li>
           </ul>
