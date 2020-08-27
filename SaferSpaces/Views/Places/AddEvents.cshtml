@@ -8,6 +8,9 @@
 
 <form action="/addevents" method="post">
 
+  @* @Html.HiddenFor(model => model.Place_Id) *@ 
+  @* How do we associate the place Id with this event? *@
+
   <div class="form-group">
     <label for="name">Event name:</label>
     <input id="name" name="name" type="text" class="form-control input-text">
