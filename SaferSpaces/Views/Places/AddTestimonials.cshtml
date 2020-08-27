@@ -1,24 +1,29 @@
 @{
   Layout = "_Layout";
 }
-<div class="register-form input-style-register">
+<div class="testimonial-form input-style-testimonial">
 
-<h1>Add a Testimonial for this Venue</h1>
+  <h1>Add a Testimonial for this Venue</h1>
 
-<form action="/addtestimonials" method="post">  
-@* IS ACTIONROUTE INCORRECT? *@
+  <form action="/addtestimonials" method="post">  
 
-  <label for="story">Tell your story:</label>
-  <input id="story" class="form-control mr-sm-2" name="story" type="text">
+    <div class="form-group">
+      <label for="story">Tell your story:</label>
+      <input id="story" class="form-control mr-sm-2 testimonial-input" name="story" type="text">
+    </div>
 
-  <label for="management">Did management get involved and were they helpful?</label>
-  <input id="management" class="form-control mr-sm-2" name="management" type="text">
+    <div class="form-group">
+      <label for="management">Did management get involved and were they helpful?</label>
+      <input id="management" class="form-control mr-sm-2 testimonial-input" name="management" type="text">
+    </div>
 
-  <label for="other">Is there anything else people should know?</label>
-  <input id="other" class="form-control mr-sm-2" name="other" type="text">
+    <div class="form-group">
+      <label for="other">Is there anything else people should know?</label>
+      <input id="other" class="form-control mr-sm-2 testimonial-input" name="other" type="text">
+    </div>
 
-  <button type="submit" class="btn btn-primary">Submit this Testimonial</button>
+    <button type="submit" class="btn btn-primary testimony-btn">Submit this Testimonial</button>
 
-</form>
+  </form>
 
 </div>

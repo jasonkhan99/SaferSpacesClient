@@ -41,6 +41,15 @@ a.navbar-brand {
   font-size: 1.5rem;
 }
 
+.right-inner-addon i {
+  position: absolute;
+  right: 0px;
+  padding: 10px 12px;
+  pointer-events: none;
+}
+
+/* GLOBAL */
+
 li {
   list-style-type: none;
   font-size: large;
@@ -51,16 +60,32 @@ p {
   color: lightgray;
 }
 
+/* BUTTONS */
+
 #search-btn {
   width: 15%;
   margin-top: 5%;
 }
 
+.testimony-btn {
+  margin-top: 5%;
+}
+
+/* TEXT */
+
 .login-msg {
   margin-top: 5%;
 }
 
+.input-text {
+  font-size: 1.5rem;
+}
+
 /* FORMS */
+
+.form {
+  margin-top: 100px;
+}
 
 .input-style-home {
   width: 60%;
@@ -69,7 +94,7 @@ p {
   margin-right: auto;
 }
 
-.input-style-login, .input-style-register {
+.input-style-login, .input-style-register, .input-style-testimonial {
   height: 100%;
   opacity: 0.8;
   margin-top: 200px;
@@ -80,18 +105,10 @@ p {
   padding: 50px;
 }
 
-.login-form, .register-form {
+.login-form, .register-form, .testimonial-form  {
   padding: 30% 20%;
   height: 100%; 
   opacity: .70;
-}
-
-.input-text {
-  font-size: 1.5rem;
-}
-
-.form {
-  margin-top: 100px;
 }
 
 .about {
@@ -103,13 +120,6 @@ p {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 50px;
-}
-
-.right-inner-addon i {
-  position: absolute;
-  right: 0px;
-  padding: 10px 12px;
-  pointer-events: none;
 }
 
 /* @media screen and (min-width: 500px) {
