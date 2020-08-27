@@ -10,17 +10,17 @@ namespace SaferSpacesClient.Controllers
 {
   public class PlacesController : Controller
   {
-    public IActionResult Index(string searchRequest)
-    {
-      var allPlaces = Place.GetPlaces(EnvironmentVariables.ApiKey, searchRequest);
-      return View(allPlaces);
-    }
-    public IActionResult Details(string id)
-    {
-      var specificPlace = Place.GetDetails(EnvironmentVariables.ApiKey, id);
-      Console.WriteLine(specificPlace);
-      return View(specificPlace);
-    }
+    // public IActionResult Index(string searchRequest)
+    // {
+    //   var allPlaces = Place.GetPlaces(EnvironmentVariables.ApiKey, searchRequest);
+    //   return View(allPlaces);
+    // }
+    // public IActionResult Details(string id)
+    // {
+    //   var specificPlace = Place.GetDetails(EnvironmentVariables.ApiKey, id);
+    //   Console.WriteLine(specificPlace);
+    //   return View(specificPlace);
+    // }
 
     public IActionResult AddTestimonials()
     {
@@ -35,11 +35,11 @@ namespace SaferSpacesClient.Controllers
     // [HttpPost, ActionName("AddEvents")]
     // public ActionResult ConfirmAddEvents(int Place_Id, Event gathering)
     // {
-      // if(Place_Id != 0)
-      // {
-      //   Add the join relationship to the database EventPlace
-      // }
-      // then save the changes
+    // if(Place_Id != 0)
+    // {
+    //   Add the join relationship to the database EventPlace
+    // }
+    // then save the changes
     //   return RedirectToAction("Index");
     // }
 
@@ -50,17 +50,17 @@ namespace SaferSpacesClient.Controllers
     //   return View();
     // }
 
-  //  [HttpPost]
-  //   public ActionResult Edit(Item item, int CategoryId)
-  //   {
-  //     if (CategoryId != 0)
-  //     {
-  //       _db.CategoryItem.Add(new CategoryItem() { CategoryId = CategoryId, ItemId = item.ItemId });
-  //     }
-  //     _db.Entry(item).State = EntityState.Modified;
-  //     _db.SaveChanges();
-  //     return RedirectToAction("Index");
-  //   }
+    //  [HttpPost]
+    //   public ActionResult Edit(Item item, int CategoryId)
+    //   {
+    //     if (CategoryId != 0)
+    //     {
+    //       _db.CategoryItem.Add(new CategoryItem() { CategoryId = CategoryId, ItemId = item.ItemId });
+    //     }
+    //     _db.Entry(item).State = EntityState.Modified;
+    //     _db.SaveChanges();
+    //     return RedirectToAction("Index");
+    //   }
 
     // public IActionResult Details(int id)
     // {
