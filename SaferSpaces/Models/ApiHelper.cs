@@ -10,7 +10,7 @@ namespace SaferSpacesClient.Models
     public static async Task<string> ApiCall(string apiKey, string searchRequest)
     {
       RestClient client = new RestClient("https://maps.googleapis.com");
-      RestRequest request = new RestRequest($"maps/api/place/textsearch/json?input={searchRequest}&inputtype=textquery&types=bar&fields=formatted_address,name,type,place_id&key={apiKey}", Method.GET);
+      RestRequest request = new RestRequest($"maps/api/place/textsearch/json?input={searchRequest}&inputtype=textquery&types=bar&fields=formatted_address,name,place_id&key={apiKey}", Method.GET);
       var response = await client.ExecuteTaskAsync(request);
       return response.Content;
     }
@@ -18,7 +18,7 @@ namespace SaferSpacesClient.Models
     public static async Task<string> ApiSpecific(string apiKey, string id)
     {
       RestClient client = new RestClient("https://maps.googleapis.com");
-      RestRequest request = new RestRequest($"maps/api/place/textsearch/json?input={id}&inputtype=textquery&types=bar&fields=formatted_address,name,type,place_id&key={apiKey}", Method.GET);
+      RestRequest request = new RestRequest($"maps/api/place/details/json?place_id={id}&fields=formatted_address,name,place_id&key={apiKey}", Method.GET);
       var response = await client.ExecuteTaskAsync(request);
       return response.Content;
     }

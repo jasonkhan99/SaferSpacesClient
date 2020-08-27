@@ -2,7 +2,7 @@
   Layout = "_Layout";
 }
 
-
+<h3> Search Results </h3>
 <ol>
   <div class="grid-container">
     @foreach (Place place in Model)
@@ -11,41 +11,8 @@
           <ul>
               <li>Name: @Html.ActionLink($"{@place.Name}", "Details", new {id = @place.Place_Id})</li>
               <li>Address: @place.Formatted_Address</li>
-              <li>Types: @String.Join(", ", place.Types)</li>
           </ul>
       </div>
     }
   </div>
 </ol>
-
-
-@* @{
-  Layout = "_Layout";    TEMPLATE
-}
-
-@using SaferSpacesClient.Models;
-@model IEnumerable<SaferSpacesClient.Models.Item>
-
-<h1>Items for @User.Identity.Name</h1>
-
-
-
-@if (Model.Any())
-***Any() will return true if the Model contains *any* items
-
-{
-  <ul>
-    @foreach (Place place in Model)
-    {
-      <li>@Html.ActionLink($"{place.Name}", "Details", new { id = place.PlaceId })</li>
-    }
-  </ul>
-} 
-else
-{
-  <h3>No places have been added yet!</h3>
-}
-
-<p>@Html.ActionLink("Add new place", "Create")</p>
-
-<p>@Html.ActionLink("Home", "Index", "Home")</p> *@

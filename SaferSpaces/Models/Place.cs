@@ -6,7 +6,7 @@ using Newtonsoft.Json.Linq;
 namespace SaferSpacesClient.Models
 {
   public class Place
-  {
+  { 
     public Place()
     {
       this.Events = new HashSet<Event>();
@@ -14,7 +14,6 @@ namespace SaferSpacesClient.Models
     }
     public string Place_Id { get; set; }
     public string Name { get; set; }
-    public List<string> Types { get; set; }
     public string Formatted_Address { get; set; }
     public Restroom RestroomFeatures { get; set; }
     public virtual ICollection<Event> Events { get; set; }
@@ -37,7 +36,9 @@ namespace SaferSpacesClient.Models
       var result = apiCallTask.Result;
 
       JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
-      Place place = JsonConvert.DeserializeObject<Place>(jsonResponse.ToString());
+      Console.WriteLine(jsonResponse);
+      Place place = JsonConvert.DeserializeObject<Place>(jsonResponse["result"].ToString());
+      Console.WriteLine(place.Name);
 
       return place;
     }
