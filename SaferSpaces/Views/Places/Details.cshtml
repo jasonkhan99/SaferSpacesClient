@@ -3,9 +3,9 @@
   Layout = "_Layout";
 }
 
-<h1>Places Details</h1>
+<h1>Details for this location:</h1>
 <div class="grid-container">
-  <div class="grid-item">
+  <div class="details-grid-item">
     <h1>@Model.Name</h1>
     <p>@Model.Formatted_Address</p>
     <li> Add a testimonial: @Html.ActionLink("Add", "AddTestimonials", new {id = Model.Place_Id} )

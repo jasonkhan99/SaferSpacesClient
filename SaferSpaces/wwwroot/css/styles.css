@@ -144,6 +144,17 @@ p {
   justify-items: center;
 }
 
+.details-grid-item {
+  padding: 1em;
+  margin-top: 5%;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: -1px 0px 0px rgba(0, 0, 0, 0.06);
+  border: .5px solid lightgrey ;
+  text-align: left;
+  align-items: center;
+  justify-items: center;
+}
+
 @media screen and (min-width: 500px){
   .input-style-login, .input-style-register {
     width: 60%;
