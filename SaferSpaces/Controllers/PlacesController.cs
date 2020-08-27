@@ -27,6 +27,11 @@ namespace SaferSpacesClient.Controllers
       return View();
     }
 
+    public IActionResult AddEvents()
+    {
+      return View();
+    }
+
     // [HttpPost]
     // public IActionResult Create(Place place)
     // {

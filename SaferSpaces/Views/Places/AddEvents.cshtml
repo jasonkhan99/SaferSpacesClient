@@ -1,0 +1,33 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="events-form input-style-events">
+
+<h1> Add a new Event </h1>
+
+<form action="/addevents" method="post">
+
+  <div class="form-group">
+    <label for="name">Event name:</label>
+    <input id="name" name="name" type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="eventDate">Date of Event:</label>
+    <input id="eventDate" name="eventDate" type="date" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="eventTime">Time of Event:</label>
+    <input id="eventTime" name="eventTime" type="time" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="description">Description of Event:</label>
+    <input id="description" name="description" type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="place"> Where is this event happening?</label>
+    <input id="place" name="place" type="text" class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit Event</button>
+</form>

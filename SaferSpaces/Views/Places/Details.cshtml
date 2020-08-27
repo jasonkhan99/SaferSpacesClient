@@ -8,6 +8,9 @@
   <div class="details-grid-item">
     <h1>@Model.Name</h1>
     <p>@Model.Formatted_Address</p>
-    <li> Add a testimonial: @Html.ActionLink("Add", "AddTestimonials", new {id = Model.Place_Id} )
+    <p> Add an event: @Html.ActionLink("Add", "AddEvents", new {id = Model.Place_Id} )</p>
+    <p> Add a testimonial: @Html.ActionLink("Add", "AddTestimonials", new {id = Model.Place_Id} )</p>
   </div>
 </div>
+
+@* put an if event !=0 then show events type of thing, same for testimonials *@

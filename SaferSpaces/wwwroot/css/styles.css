@@ -94,7 +94,7 @@ p {
   margin-right: auto;
 }
 
-.input-style-login, .input-style-register, .input-style-testimonial {
+.input-style-login, .input-style-register, .input-style-testimonial, .input-style-events {
   height: 100%;
   opacity: 0.8;
   margin-top: 200px;
