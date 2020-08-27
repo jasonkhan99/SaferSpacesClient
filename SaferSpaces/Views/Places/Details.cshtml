@@ -14,12 +14,20 @@
     {
       <p>No events have been added here yet. Add an event: @Html.ActionLink("Add", "AddEvents", new {id = Model.Place_Id} )</p>
     }
+    else
+    {
+      <h3>@Model.Events.Count</h3>
+      <p> Add an event: @Html.ActionLink("Add", "AddEvents", new {id = Model.Place_Id} )</p>
+    }
     @if(Model.Testimonials.Count == 0)
     {
       <p>No testimonials have been written yet. Add a testimonial: @Html.ActionLink("Add", "AddTestimonials", new {id = Model.Place_Id} )</p>
     }
-    <p> Add an event: @Html.ActionLink("Add", "AddEvents", new {id = Model.Place_Id} )</p>
-    <p> Add a testimonial: @Html.ActionLink("Add", "AddTestimonials", new {id = Model.Place_Id} )</p>
+    else
+    {
+      <h3>@Model.Testimonials.Count</h3>
+      <p> Add a testimonial: @Html.ActionLink("Add", "AddTestimonials", new {id = Model.Place_Id} )</p>
+    }
   </div>
 </div>
 

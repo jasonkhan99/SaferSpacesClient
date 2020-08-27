@@ -28,8 +28,9 @@ body {
 
 }
 
-.greeting {
-  font-size: 16pt;
+.welcome {
+  font-size: 25pt;
+  text-align:center;
 }
 
 .nav-item {
@@ -39,6 +40,7 @@ body {
 .menu a {
   color: lightgray;
   font-size: 16pt;
+  text-align: right;
 }
 
 a.navbar-brand {

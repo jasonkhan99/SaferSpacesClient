@@ -4,13 +4,28 @@
 
 @model SaferSpacesClient.Models.Place
 
+@* @using (Html.BeginForm())
+{
+  @Html.Hidden("Place_Id", new { place_id = @Model.Place_Id })
 
+  @Html.Display(model => model.Story)
+  @Html.TextBox(model => model.Story)
 
+  @Html.Display(model => model.Management)
+  @Html.TextBox(model => model.Management)
+
+  @Html.Display(model => model.Other)
+  @Html.TextBox(model => model.Other)
+
+  <input type="submit", value="Save"/>
+} *@
 <div class="testimonial-form input-style-testimonial">
 
   <h1>Add a Testimonial for this Venue</h1>
 
-  <form action="/addtestimonials" method="post">  
+  <form action="/addtestimonials" method="post">
+
+    @* @Html.Hidden("Place_Id", new { place_id = @Model.Place_Id }) *@
 
     <div class="form-group">
       <label for="story">Tell your story:</label>
