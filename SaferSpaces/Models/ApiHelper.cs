@@ -129,7 +129,7 @@ namespace SaferSpacesClient.Models
       return response.Content;
     }
 
-    public static async Task PostTestimonial(string newTestimonial)
+    public static async Task PostTestimonial(string place_id, string newTestimonial)
     {
       RestClient client = new RestClient("http://localhost:5000/api");
       RestRequest request = new RestRequest($"testimonials", Method.POST);

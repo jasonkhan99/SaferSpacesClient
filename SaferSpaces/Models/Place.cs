@@ -42,6 +42,8 @@ namespace SaferSpacesClient.Models
 
       return place;
     }
+
+
     // public static List<Place> GetPlaces()
     // {
     //   var apiCallTask = ApiHelper.GetAllPlaces();
